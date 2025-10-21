@@ -448,7 +448,17 @@
         </div>
       </div>
 
-      <div class="comparison">
+      <div class="section" id="tariffSection">
+        <h2
+          style="
+            color: #2c3e50;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+          "
+        >
+          📊 Расчет тарифа
+        </h2>
         <div class="comparison-item regular">
           <h3
             style="
@@ -458,7 +468,7 @@
               margin-bottom: 16px;
             "
           >
-            📊 Обычный тариф
+            💼 Обычный тариф
           </h3>
           <div class="calculation">
             Дополнительные пользователи:
@@ -475,6 +485,38 @@
             ><br />
             <strong
               >Первый год: <span id="firstYearRegular">579,800</span> ₽</strong
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison" id="comparisonSection" style="display: none">
+        <div class="comparison-item regular">
+          <h3
+            style="
+              color: #667eea;
+              font-size: 20px;
+              font-weight: 600;
+              margin-bottom: 16px;
+            "
+          >
+            📊 Обычный тариф
+          </h3>
+          <div class="calculation">
+            Дополнительные пользователи:
+            <span id="extraUsersRegular2">31</span> чел<br />
+            Стоимость доп. пользователей:
+            <span id="extraUsersCostRegular2">310,000</span> ₽/год<br />
+            Дополнительные КП:
+            <span id="extraKPRegular2">9,000</span> шт/год<br />
+            Стоимость доп. КП:
+            <span id="extraKPCostRegular2">90,000</span> ₽/год<br />
+            <strong
+              >Итого в год:
+              <span id="yearlyTotalRegular2">519,900</span> ₽/год</strong
+            ><br />
+            <strong
+              >Первый год: <span id="firstYearRegular2">579,800</span> ₽</strong
             >
           </div>
         </div>
@@ -513,7 +555,7 @@
         </div>
       </div>
 
-      <div class="section">
+      <div class="section" id="savingsSection" style="display: none">
         <h2
           style="
             color: #2c3e50;
@@ -594,6 +636,27 @@
           >
         </div>
       </div>
+
+      <div style="text-align: center; margin: 40px 0">
+        <button
+          id="showPromoBtn"
+          onclick="togglePromo()"
+          style="
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+          "
+        >
+          🔍 Показать альтернативные варианты
+        </button>
+      </div>
     </div>
 
     <script>
@@ -644,7 +707,7 @@
         const totalPromo3 = firstYearPromo + yearlyTotalPromo * 2;
         const totalSavings3 = totalRegular3 - totalPromo3;
 
-        // Обновляем отображение - обычный тариф
+        // Обновляем отображение - обычный тариф (основной блок)
         document.getElementById("extraUsersRegular").textContent =
           extraUsersRegular.toLocaleString();
         document.getElementById("extraUsersCostRegular").textContent =
@@ -656,6 +719,20 @@
         document.getElementById("yearlyTotalRegular").textContent =
           yearlyTotalRegular.toLocaleString();
         document.getElementById("firstYearRegular").textContent =
+          firstYearRegular.toLocaleString();
+
+        // Обновляем отображение - обычный тариф (блок сравнения)
+        document.getElementById("extraUsersRegular2").textContent =
+          extraUsersRegular.toLocaleString();
+        document.getElementById("extraUsersCostRegular2").textContent =
+          extraUsersCostRegular.toLocaleString();
+        document.getElementById("extraKPRegular2").textContent =
+          extraKPRegular.toLocaleString();
+        document.getElementById("extraKPCostRegular2").textContent =
+          extraKPCostRegular.toLocaleString();
+        document.getElementById("yearlyTotalRegular2").textContent =
+          yearlyTotalRegular.toLocaleString();
+        document.getElementById("firstYearRegular2").textContent =
           firstYearRegular.toLocaleString();
 
         // Обновляем отображение - акция
@@ -689,6 +766,32 @@
           totalPromo3.toLocaleString();
         document.getElementById("totalSavings3").textContent =
           totalSavings3.toLocaleString();
+      }
+
+      // Функция переключения персонального предложения
+      function togglePromo() {
+        const tariffSection = document.getElementById("tariffSection");
+        const comparisonSection = document.getElementById("comparisonSection");
+        const savingsSection = document.getElementById("savingsSection");
+        const showPromoBtn = document.getElementById("showPromoBtn");
+
+        if (comparisonSection.style.display === "none") {
+          // Скрываем расчет тарифа и показываем сравнение
+          tariffSection.style.display = "none";
+          comparisonSection.style.display = "grid";
+          savingsSection.style.display = "block";
+          showPromoBtn.textContent = "🔄 Скрыть альтернативные варианты";
+          showPromoBtn.style.background =
+            "linear-gradient(135deg, #6c757d 0%, #495057 100%)";
+        } else {
+          // Показываем расчет тарифа и скрываем сравнение
+          tariffSection.style.display = "block";
+          comparisonSection.style.display = "none";
+          savingsSection.style.display = "none";
+          showPromoBtn.textContent = "🔍 Показать альтернативные варианты";
+          showPromoBtn.style.background =
+            "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
+        }
       }
 
       // Инициализация при загрузке
