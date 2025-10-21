@@ -536,20 +536,17 @@
           <div class="calculation">
             <strong>Платите за: 35 пользователей</strong><br />
             <strong>Получаете: 50 пользователей</strong><br />
+            <strong>КП: безлимит</strong><br />
             Дополнительные пользователи:
             <span id="extraUsersPromo">25</span> чел<br />
             Стоимость доп. пользователей:
             <span id="extraUsersCostPromo">250,000</span> ₽/год<br />
-            Дополнительные КП:
-            <span id="extraKPPromo">9,000</span> шт/год<br />
-            Стоимость доп. КП:
-            <span id="extraKPCostPromo">90,000</span> ₽/год<br />
             <strong
               >Итого в год:
-              <span id="yearlyTotalPromo">459,900</span> ₽/год</strong
+              <span id="yearlyTotalPromo">369,900</span> ₽/год</strong
             ><br />
             <strong
-              >Первый год: <span id="firstYearPromo">519,800</span> ₽</strong
+              >Первый год: <span id="firstYearPromo">429,800</span> ₽</strong
             >
           </div>
         </div>
@@ -564,8 +561,116 @@
             margin-bottom: 20px;
           "
         >
-          📈 Экономия за 3 года
+          💰 Ваша выгода с персональным предложением
         </h2>
+
+        <!-- Блок с акцентами на выгодах -->
+        <div
+          style="
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            border: 2px solid #28a745;
+            box-shadow: 0 4px 16px rgba(40, 167, 69, 0.1);
+          "
+        >
+          <div style="text-align: center; margin-bottom: 20px">
+            <h3
+              style="
+                color: #28a745;
+                font-size: 20px;
+                font-weight: 700;
+                margin: 0;
+              "
+            >
+              🎯 Что вы получаете:
+            </h3>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px">
+            <div
+              style="
+                text-align: center;
+                padding: 16px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              "
+            >
+              <div
+                style="
+                  font-size: 32px;
+                  font-weight: 800;
+                  color: #ff6b35;
+                  margin-bottom: 8px;
+                "
+              >
+                50
+              </div>
+              <div style="font-size: 16px; color: #2c3e50; font-weight: 600">
+                пользователей вместо 41
+              </div>
+              <div style="font-size: 14px; color: #6c757d; margin-top: 4px">
+                +9 дополнительных пользователей
+              </div>
+            </div>
+
+            <div
+              style="
+                text-align: center;
+                padding: 16px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              "
+            >
+              <div
+                style="
+                  font-size: 32px;
+                  font-weight: 800;
+                  color: #28a745;
+                  margin-bottom: 8px;
+                "
+              >
+                ∞
+              </div>
+              <div style="font-size: 16px; color: #2c3e50; font-weight: 600">
+                безлимитные КП
+              </div>
+              <div style="font-size: 14px; color: #6c757d; margin-top: 4px">
+                экономия 90,000 ₽/год на КП
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Разделитель -->
+        <div
+          style="
+            text-align: center;
+            margin: 32px 0;
+            padding: 20px 0;
+            border-top: 2px solid #e9ecef;
+            border-bottom: 2px solid #e9ecef;
+          "
+        >
+          <h3
+            style="
+              color: #2c3e50;
+              font-size: 20px;
+              font-weight: 600;
+              margin: 0;
+              background: white;
+              padding: 0 20px;
+              display: inline-block;
+            "
+          >
+            📊 Сравнение стоимости за 3 года
+          </h3>
+        </div>
+
+        <!-- Сравнение стоимости -->
         <div
           style="
             display: grid;
@@ -629,11 +734,34 @@
             >
           </div>
         </div>
-        <div class="result">
-          <strong
-            >ОБЩАЯ ЭКОНОМИЯ за 3 года:
-            <span id="totalSavings3">180,000</span> ₽</strong
+
+        <!-- Итоговая экономия с акцентом -->
+        <div
+          style="
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.4);
+          "
+        >
+          <div style="font-size: 24px; font-weight: 800; margin-bottom: 8px">
+            💰 ВАША ЭКОНОМИЯ ЗА 3 ГОДА
+          </div>
+          <div
+            style="
+              font-size: 48px;
+              font-weight: 900;
+              margin-bottom: 12px;
+              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            "
           >
+            <span id="totalSavings3">450,000</span> ₽
+          </div>
+          <div style="font-size: 16px; opacity: 0.9">
+            + безлимитные КП + больше пользователей
+          </div>
         </div>
       </div>
 
@@ -687,14 +815,13 @@
           basePrice + extraUsersCostRegular + extraKPCostRegular;
         const firstYearRegular = yearlyTotalRegular + integrationCost;
 
-        // Акция: 35 пользователей = 50 пользователей
+        // Акция: 35 пользователей = 50 пользователей, КП безлимит
         const promoUsers = 35; // Платим за 35
         const actualUsers = 50; // Получаем 50
         const extraUsersPromo = Math.max(0, promoUsers - baseUsers);
         const extraUsersCostPromo = extraUsersPromo * userPrice;
-        const extraKPCostPromo = Math.ceil(extraKPRegular / 1000) * kpPrice; // КП те же
-        const yearlyTotalPromo =
-          basePrice + extraUsersCostPromo + extraKPCostPromo;
+        // КП безлимит - не считаем стоимость КП
+        const yearlyTotalPromo = basePrice + extraUsersCostPromo;
         const firstYearPromo = yearlyTotalPromo + integrationCost;
 
         // Экономия
@@ -736,16 +863,10 @@
           firstYearRegular.toLocaleString();
 
         // Обновляем отображение - акция
-        document.getElementById("paidUsers").textContent = promoUsers;
-        document.getElementById("actualUsers").textContent = actualUsers;
         document.getElementById("extraUsersPromo").textContent =
           extraUsersPromo.toLocaleString();
         document.getElementById("extraUsersCostPromo").textContent =
           extraUsersCostPromo.toLocaleString();
-        document.getElementById("extraKPPromo").textContent =
-          extraKPRegular.toLocaleString();
-        document.getElementById("extraKPCostPromo").textContent =
-          extraKPCostPromo.toLocaleString();
         document.getElementById("yearlyTotalPromo").textContent =
           yearlyTotalPromo.toLocaleString();
         document.getElementById("firstYearPromo").textContent =
