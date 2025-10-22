@@ -309,7 +309,7 @@
                 text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
               "
             >
-              119,900 ₽/год
+              119 900 ₽/год
             </div>
             <div
               style="
@@ -318,7 +318,7 @@
                 font-weight: 500;
               "
             >
-              Включено: 10 пользователей + 1,000 КП/год
+              Включено: 10 пользователей + 1 000 КП/год
             </div>
           </div>
         </div>
@@ -353,7 +353,7 @@
                   margin-bottom: 8px;
                 "
               >
-                10,000 ₽/год
+                10 000 ₽/год
               </div>
               <div style="font-size: 16px; color: #6c757d; font-weight: 500">
                 за каждого пользователя
@@ -390,10 +390,10 @@
                   margin-bottom: 8px;
                 "
               >
-                10,000 ₽/год
+                10 000 ₽/год
               </div>
               <div style="font-size: 16px; color: #6c757d; font-weight: 500">
-                за каждые 1,000 КП
+                за каждые 1 000 КП
               </div>
             </div>
           </div>
@@ -413,29 +413,126 @@
         </h2>
         <div class="input-group">
           <label>Количество пользователей:</label>
-          <input
-            type="number"
-            id="requiredUsers"
-            value="41"
-            min="10"
-            max="1000"
-            onchange="calculate()"
-          />
+          <div style="display: flex; align-items: center; gap: 8px">
+            <button
+              type="button"
+              onclick="changeUsers(-1)"
+              style="
+                background: #667eea;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                width: 32px;
+                height: 32px;
+                cursor: pointer;
+                font-size: 18px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s ease;
+              "
+              onmouseover="this.style.background='#5a6fd8'"
+              onmouseout="this.style.background='#667eea'"
+            >
+              −
+            </button>
+            <input
+              type="text"
+              id="requiredUsers"
+              value="41"
+              style="width: 120px; text-align: center"
+              onchange="calculate()"
+              oninput="formatUsersInput(this)"
+              onblur="validateUsersInput(this)"
+            />
+            <button
+              type="button"
+              onclick="changeUsers(1)"
+              style="
+                background: #667eea;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                width: 32px;
+                height: 32px;
+                cursor: pointer;
+                font-size: 18px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s ease;
+              "
+              onmouseover="this.style.background='#5a6fd8'"
+              onmouseout="this.style.background='#667eea'"
+            >
+              +
+            </button>
+          </div>
         </div>
         <div class="input-group">
           <label>Количество КП в год:</label>
-          <input
-            type="number"
-            id="requiredKP"
-            value="10000"
-            min="1000"
-            max="100000"
-            step="1000"
-            onchange="calculate()"
-          />
+          <div style="display: flex; align-items: center; gap: 8px">
+            <button
+              type="button"
+              onclick="changeKP(-1000)"
+              style="
+                background: #667eea;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                width: 32px;
+                height: 32px;
+                cursor: pointer;
+                font-size: 18px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s ease;
+              "
+              onmouseover="this.style.background='#5a6fd8'"
+              onmouseout="this.style.background='#667eea'"
+            >
+              −
+            </button>
+            <input
+              type="text"
+              id="requiredKP"
+              value="10 000"
+              style="width: 120px; text-align: center"
+              onchange="calculate()"
+              oninput="formatKPInput(this)"
+              onblur="validateKPInput(this)"
+            />
+            <button
+              type="button"
+              onclick="changeKP(1000)"
+              style="
+                background: #667eea;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                width: 32px;
+                height: 32px;
+                cursor: pointer;
+                font-size: 18px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s ease;
+              "
+              onmouseover="this.style.background='#5a6fd8'"
+              onmouseout="this.style.background='#667eea'"
+            >
+              +
+            </button>
+          </div>
         </div>
         <div class="input-group">
-          <label>Включить интеграцию (59,900 ₽):</label>
+          <label>Включить интеграцию (59 900 ₽):</label>
           <div style="display: flex; align-items: center; gap: 8px">
             <input
               type="checkbox"
@@ -503,7 +600,7 @@
                 КП в год
               </div>
               <div style="font-size: 20px; color: #2c3e50; font-weight: 700">
-                <span id="totalKPDisplay">10,000</span> шт
+                <span id="totalKPDisplay">10 000</span> шт
               </div>
             </div>
             <div>
@@ -549,10 +646,10 @@
               "
             >
               <span style="font-weight: 600; color: #2c3e50"
-                >Базовый тариф (10 пользователей + 1,000 КП):</span
+                >Базовый тариф (10 пользователей + 1 000 КП):</span
               >
               <span style="font-weight: 700; color: #667eea; font-size: 16px"
-                >119,900 ₽/год</span
+                >119 900 ₽/год</span
               >
             </div>
 
@@ -608,7 +705,7 @@
                 >Интеграция (единоразово):</span
               >
               <span style="font-weight: 700; color: #667eea; font-size: 16px"
-                >59,900 ₽</span
+                >59 900 ₽</span
               >
             </div>
           </div>
@@ -699,7 +796,7 @@
                 КП в год
               </div>
               <div style="font-size: 20px; color: #2c3e50; font-weight: 700">
-                <span id="totalKPDisplay2">10,000</span> шт
+                <span id="totalKPDisplay2">10 000</span> шт
               </div>
             </div>
             <div>
@@ -737,10 +834,10 @@
               "
             >
               <span style="font-weight: 600; color: #2c3e50"
-                >Базовый тариф (10 пользователей + 1,000 КП):</span
+                >Базовый тариф (10 пользователей + 1 000 КП):</span
               >
               <span style="font-weight: 700; color: #667eea; font-size: 16px"
-                >119,900 ₽/год</span
+                >119 900 ₽/год</span
               >
             </div>
 
@@ -796,7 +893,7 @@
                 >Интеграция (единоразово):</span
               >
               <span style="font-weight: 700; color: #667eea; font-size: 16px"
-                >59,900 ₽</span
+                >59 900 ₽</span
               >
             </div>
           </div>
@@ -867,10 +964,10 @@
               "
             >
               <span style="font-weight: 600; color: white"
-                >Базовый тариф (10 пользователей + 1,000 КП):</span
+                >Базовый тариф (10 пользователей + 1 000 КП):</span
               >
               <span style="font-weight: 700; color: white; font-size: 16px"
-                >119,900 ₽/год</span
+                >119 900 ₽/год</span
               >
             </div>
 
@@ -908,7 +1005,7 @@
                 >Интеграция (единоразово):</span
               >
               <span style="font-weight: 700; color: white; font-size: 16px"
-                >59,900 ₽</span
+                >59 900 ₽</span
               >
             </div>
           </div>
@@ -1098,7 +1195,7 @@
                 безлимитные КП
               </div>
               <div style="font-size: 14px; color: #6c757d; margin-top: 4px">
-                экономия 90,000 ₽/год на КП
+                экономия 90 000 ₽/год на КП
               </div>
             </div>
           </div>
@@ -1256,7 +1353,7 @@
           document.getElementById("requiredUsers").value
         );
         const requiredKP = parseInt(
-          document.getElementById("requiredKP").value
+          document.getElementById("requiredKP").value.replace(/\s/g, "")
         );
         const userPrice = 10000; // Стоимость за пользователя
         const kpPrice = 10000; // Стоимость за 1000 КП
@@ -1295,33 +1392,33 @@
 
         // Обновляем отображение - блок параметров (основной)
         document.getElementById("totalUsersDisplay").textContent =
-          requiredUsers.toLocaleString();
+          requiredUsers.toLocaleString("ru-RU");
         document.getElementById("totalKPDisplay").textContent =
-          requiredKP.toLocaleString();
+          requiredKP.toLocaleString("ru-RU");
         document.getElementById("integrationStatusDisplay").textContent =
           integrationCheckbox ? "Включена" : "Отключена";
 
         // Обновляем отображение - блок параметров (в сравнении)
         document.getElementById("totalUsersDisplay2").textContent =
-          requiredUsers.toLocaleString();
+          requiredUsers.toLocaleString("ru-RU");
         document.getElementById("totalKPDisplay2").textContent =
-          requiredKP.toLocaleString();
+          requiredKP.toLocaleString("ru-RU");
         document.getElementById("integrationStatusDisplay2").textContent =
           integrationCheckbox ? "Включена" : "Отключена";
 
         // Обновляем отображение - основной блок расчета
         document.getElementById("extraUsersDisplay").textContent =
-          extraUsersRegular.toLocaleString();
+          extraUsersRegular.toLocaleString("ru-RU");
         document.getElementById("extraUsersCostDisplay").textContent =
-          extraUsersCostRegular.toLocaleString();
+          extraUsersCostRegular.toLocaleString("ru-RU");
         document.getElementById("extraKPDisplay").textContent =
-          extraKPRegular.toLocaleString();
+          extraKPRegular.toLocaleString("ru-RU");
         document.getElementById("extraKPCostDisplay").textContent =
-          extraKPCostRegular.toLocaleString();
+          extraKPCostRegular.toLocaleString("ru-RU");
         document.getElementById("yearlyTotalDisplay").textContent =
-          yearlyTotalRegular.toLocaleString();
+          yearlyTotalRegular.toLocaleString("ru-RU");
         document.getElementById("firstYearTotalDisplay").textContent =
-          firstYearRegular.toLocaleString();
+          firstYearRegular.toLocaleString("ru-RU");
 
         // Показываем/скрываем строку интеграции
         const integrationRow = document.getElementById("integrationRow");
@@ -1341,43 +1438,43 @@
 
         // Обновляем отображение - обычный тариф (блок сравнения)
         document.getElementById("extraUsersRegular2").textContent =
-          extraUsersRegular.toLocaleString();
+          extraUsersRegular.toLocaleString("ru-RU");
         document.getElementById("extraUsersCostRegular2").textContent =
-          extraUsersCostRegular.toLocaleString();
+          extraUsersCostRegular.toLocaleString("ru-RU");
         document.getElementById("extraKPRegular2").textContent =
-          extraKPRegular.toLocaleString();
+          extraKPRegular.toLocaleString("ru-RU");
         document.getElementById("extraKPCostRegular2").textContent =
-          extraKPCostRegular.toLocaleString();
+          extraKPCostRegular.toLocaleString("ru-RU");
         document.getElementById("yearlyTotalRegular2").textContent =
-          yearlyTotalRegular.toLocaleString();
+          yearlyTotalRegular.toLocaleString("ru-RU");
         document.getElementById("firstYearRegular2").textContent =
-          firstYearRegular.toLocaleString();
+          firstYearRegular.toLocaleString("ru-RU");
 
         // Обновляем отображение - акция
         document.getElementById("extraUsersPromo").textContent =
-          extraUsersPromo.toLocaleString();
+          extraUsersPromo.toLocaleString("ru-RU");
         document.getElementById("extraUsersCostPromo").textContent =
-          extraUsersCostPromo.toLocaleString();
+          extraUsersCostPromo.toLocaleString("ru-RU");
         document.getElementById("yearlyTotalPromo").textContent =
-          yearlyTotalPromo.toLocaleString();
+          yearlyTotalPromo.toLocaleString("ru-RU");
         document.getElementById("firstYearPromo").textContent =
-          firstYearPromo.toLocaleString();
+          firstYearPromo.toLocaleString("ru-RU");
 
         // За 3 года
         document.getElementById("firstYearRegular3").textContent =
-          firstYearRegular.toLocaleString();
+          firstYearRegular.toLocaleString("ru-RU");
         document.getElementById("yearlyRegular3").textContent =
-          yearlyTotalRegular.toLocaleString();
+          yearlyTotalRegular.toLocaleString("ru-RU");
         document.getElementById("totalRegular3").textContent =
-          totalRegular3.toLocaleString();
+          totalRegular3.toLocaleString("ru-RU");
         document.getElementById("firstYearPromo3").textContent =
-          firstYearPromo.toLocaleString();
+          firstYearPromo.toLocaleString("ru-RU");
         document.getElementById("yearlyPromo3").textContent =
-          yearlyTotalPromo.toLocaleString();
+          yearlyTotalPromo.toLocaleString("ru-RU");
         document.getElementById("totalPromo3").textContent =
-          totalPromo3.toLocaleString();
+          totalPromo3.toLocaleString("ru-RU");
         document.getElementById("totalSavings3").textContent =
-          totalSavings3.toLocaleString();
+          totalSavings3.toLocaleString("ru-RU");
       }
 
       // Функция переключения персонального предложения
@@ -1404,6 +1501,129 @@
           showPromoBtn.style.background =
             "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
         }
+      }
+
+      // Функция форматирования поля КП
+      function formatKPInput(input) {
+        // Убираем все нецифровые символы кроме пробелов
+        let value = input.value.replace(/[^\d\s]/g, "");
+
+        // Убираем пробелы для обработки
+        let numbers = value.replace(/\s/g, "");
+
+        // Проверяем, что это число
+        if (numbers && !isNaN(numbers)) {
+          let num = parseInt(numbers);
+
+          // Ограничиваем диапазон
+          if (num < 1000) num = 1000;
+          if (num > 100000) num = 100000;
+
+          // Округляем до ближайшей тысячи
+          num = Math.round(num / 1000) * 1000;
+
+          // Форматируем с пробелами
+          input.value = num.toLocaleString("ru-RU");
+        }
+      }
+
+      // Функция валидации поля КП
+      function validateKPInput(input) {
+        let value = input.value.replace(/\s/g, "");
+        let num = parseInt(value);
+
+        if (isNaN(num) || num < 1000) {
+          num = 1000;
+        } else if (num > 100000) {
+          num = 100000;
+        }
+
+        // Округляем до ближайшей тысячи
+        num = Math.round(num / 1000) * 1000;
+        input.value = num.toLocaleString("ru-RU");
+
+        // Пересчитываем
+        calculate();
+      }
+
+      // Функция изменения значения КП
+      function changeKP(delta) {
+        const input = document.getElementById("requiredKP");
+        let value = input.value.replace(/\s/g, "");
+        let num = parseInt(value);
+
+        if (isNaN(num)) {
+          num = 1000;
+        }
+
+        // Изменяем значение
+        num += delta;
+
+        // Ограничиваем диапазон
+        if (num < 1000) num = 1000;
+        if (num > 100000) num = 100000;
+
+        // Округляем до ближайшей тысячи
+        num = Math.round(num / 1000) * 1000;
+
+        // Обновляем поле
+        input.value = num.toLocaleString("ru-RU");
+
+        // Пересчитываем
+        calculate();
+      }
+
+      // Функция форматирования поля пользователей
+      function formatUsersInput(input) {
+        // Убираем все нецифровые символы
+        let value = input.value.replace(/[^\d]/g, "");
+
+        if (value && !isNaN(value)) {
+          let num = parseInt(value);
+
+          // Ограничиваем диапазон
+          if (num < 10) num = 10;
+          if (num > 1000) num = 1000;
+
+          input.value = num;
+        }
+      }
+
+      // Функция валидации поля пользователей
+      function validateUsersInput(input) {
+        let num = parseInt(input.value);
+
+        if (isNaN(num) || num < 10) {
+          num = 10;
+        } else if (num > 1000) {
+          num = 1000;
+        }
+
+        input.value = num;
+        calculate();
+      }
+
+      // Функция изменения значения пользователей
+      function changeUsers(delta) {
+        const input = document.getElementById("requiredUsers");
+        let num = parseInt(input.value);
+
+        if (isNaN(num)) {
+          num = 10;
+        }
+
+        // Изменяем значение
+        num += delta;
+
+        // Ограничиваем диапазон
+        if (num < 10) num = 10;
+        if (num > 1000) num = 1000;
+
+        // Обновляем поле
+        input.value = num;
+
+        // Пересчитываем
+        calculate();
       }
 
       // Инициализация при загрузке
